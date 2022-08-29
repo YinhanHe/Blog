@@ -7,7 +7,7 @@ $$\zeta^{\*}=\min_{x \in X}\{f(x) = \mathbb{E}[F(x, \xi)]\} $$
 In this example, x is decision and $\xi$ is outcome(a random variable), as it is random, so we could just estimate the decision by calculating its expectation of cost function respect to each possible outcome caused by this decision and minimize it to find which is the best decision, and this is the straightforward explanition for the optimization above.
 If 
 1. the decision space X is convex
-2. objective function $F(x, \xi)$ is convex in x for any \xi
+2. objective function $F(x, \xi)$ is convex in x for any $\xi$
 then we could use some traditional deterministic algorithms to deal with it, but if not, then there are specialized methods
 * stochastic ruler
 * nested partitions
@@ -33,3 +33,13 @@ To guarantee convergence to global optimality, the previous two prerequisites sh
 
 Most theoretical results follow from the Law of Large NUmbers and Central Limit theorem. So i may repost those theorems again and the proof of those theorems are written in another blog of mine.
 
+**Weak Law of Large Numbers** Let X_1, X_2, ..., be a sequence of i.i.d. r.v.. Set $\mu=E(X_j)$ and $\sigma^2=Var(X_j)$. We define 
+$$S_n = \Sigma_{i=1}^{n}{X_i}$$
+then for every $\epsilon > 0 $, as $n \rightarrow \infty$,
+$$P(|S_n-\mu|\geq \eplison)\rightarrow 0$$
+**Strong Law of Large Numbers** With assumption above and $\mathbb{E}(|X_n|)\leq \infty $, then $$\lim_{n \rightarrow \infty}{\frac{S_n(\omega)}{n}=\mu},a.s.$$
+**Central Limit Theorem** $$\bar{X}\frightarrow_{d} N(\mu, \sigma^2/n)$$
+Return back to SSA, for certain x, we have mean f(x) and variance $\sigma^2(x) = Var(F(x,\xi))/n $:
+$$n^{\frac{1}{2}}[f_n(x)-f(x)] \rightarrow_{d} N(0, \sigma^2(x))$$
+The optimal value hold an approximation when the two prerequisites are fulfilled and $\F(\dot, \xi)$ is Lipchitz continuous, written as:
+$$n^{\frac{1}{2}}[\xi_n*-\xi*] \rightarrow_{d} N(0, \sigma^2(x*))$$
