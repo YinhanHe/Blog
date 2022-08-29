@@ -25,7 +25,7 @@ Observation of $F(x, \xi)$ is constructive if for given $\xi$, $F(x, \xi)$ can b
 When we put all observations together to reach a decision, it is called batch data evaluation, if observations are suqeuentially processed, then it is called onlinedata evaluation.
 ### Sample Average Approximation
 This uses sampling and deterministic optimization to solve problem.
-1. Sampling.Instead of calculating $\mathbb{E}[F(x,\xi)]$, this can be approximated by Monte Carlo sampling in some situations.Let $\{\xi_i\}_{i=1}^{n}$ be a set of i.i.d. realization of $\xi$, and let $F(x, \xi_i)$ be cost function realization for $\xi_i$. So the expected cost function is approximated by average of realizations:
+1. Sampling.Instead of calculating $\mathbb{E}[F(x,\xi)]$, this can be approximated by Monte Carlo sampling in some situations.Let $(\xi_i)_{i=1}^{n}$ be a set of i.i.d. realization of $\xi$, and let $F(x, \xi_i)$ be cost function realization for $\xi_i$. So the expected cost function is approximated by average of realizations:
 $$\mathbb{E}[F(x,\xi)]\approx \frac{1}{n} \Sigma_{i=1}^{n}{F(x, \xi_i)}$$
 2. Search. The R.H.S. is deterministic, so deterministic optimization can be used to solve the approximated minimizer:
 $$\xi_{n}^* =min_{x\in X}\{f_n(x) = \frac{1}{n}\Sigma_{i=1}^{*}F(x, \xi_i)\}$$
